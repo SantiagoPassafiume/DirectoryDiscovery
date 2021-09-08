@@ -1,3 +1,4 @@
 env
 test.txt
 discovery.txt
+__pycache__
