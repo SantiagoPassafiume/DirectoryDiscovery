@@ -22,14 +22,18 @@ save_to_file = input("[+] Do you want to save the output to a file? (yes/no): ")
 
 # threads = int(input("How many threads do you want to use?: "))
 
-dividing(wordlist, 1000, "list")
+dict = dividing(wordlist, 1000)
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     count = 0
     for _ in range(0, 5):
-        executor.submit(d.discovery, f"list{count}.txt", target_url, save_to_file)
+        executor.submit(d.discovery, dict[f"dir{count}"], target_url, save_to_file)
         count += 1
 
 finish = time.perf_counter()
 
 print(f"Finished in {finish-start, 2} second(s)")
+
+print(dict.keys())
+
+# SEARCH HOW TO ITERATE OVER ONE DICT KEY WITH MULTIPLE ELEMENTS

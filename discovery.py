@@ -17,16 +17,17 @@ def discovery(wordlist, url, save, output="discovery.txt"):
 
     If at any point the Keyboard it's interrupted, it raises an exception and prints a message.
     """
-    file = open_file(wordlist)
     try:
-        for line in file:
-            directory = line.strip()
-            full_url = f"{url}/{directory}"
-            response = my_request(full_url)
-            if response:
-                dir = f"/{directory} - [{response.status_code}]"
-                print(f"{Fore.GREEN}[+] {dir}")
-                if save.lower() == "yes":
-                    saving(dir, output)
+        for key, values in wordlist.diteritems():
+            for value in values:
+                print(value)
+                directory = value
+                full_url = f"{url}/{directory}"
+                response = my_request(full_url)
+                if response:
+                    dir = f"/{directory} - [{response.status_code}]"
+                    print(f"{Fore.GREEN}[+] {dir}")
+                    if save.lower() == "yes":
+                        saving(dir, output)
     except KeyboardInterrupt:
         print(f"{Fore.CYAN}The Execution Was Interrupted.")
