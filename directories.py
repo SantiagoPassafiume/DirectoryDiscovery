@@ -8,17 +8,21 @@ def request(url):
         pass
 
 
+def discovery(wordlist, url):
+    try:
+        file = open(wordlist, "r")
+    except FileNotFoundError:
+        print("File could not be found.")
+    else:
+        for line in file:
+            directory = line.strip()
+            full_url = f"{url}/{directory}"
+            response = request(full_url)
+            if response:
+                print(f"[+] /{directory} - [{response.status_code}]")
+
+
 target_url = input("[+] Enter Target URL: ")
 file_name = input("[+] Enter Wordlist: ")
 
-try:
-    file = open(file_name, "r")
-except FileNotFoundError:
-    print("File could not be found.")
-else:
-    for line in file:
-        directory = line.strip()
-        full_url = f"{target_url}/{directory}"
-        response = request(full_url)
-        if response:
-            print(f"[+] /{directory} - [{response.status_code}]")
+discovery(file_name, target_url)
