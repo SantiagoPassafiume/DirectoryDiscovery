@@ -5,7 +5,7 @@ from saving import saving
 from open_file import open_file
 
 
-def discovery(wordlist, url, save):
+def discovery(wordlist, url, save, output="discovery.txt"):
     """
     It receives 3 arguments (a wordlist, an URL and a save option).
     First it calls the "open_file" function and tries to open the wordlist, if it fails then the execution
@@ -27,6 +27,6 @@ def discovery(wordlist, url, save):
                 dir = f"/{directory} - [{response.status_code}]"
                 print(f"{Fore.GREEN}[+] {dir}")
                 if save.lower() == "yes":
-                    saving(dir)
+                    saving(dir, output)
     except KeyboardInterrupt:
         print(f"{Fore.CYAN}The Execution Was Interrupted.")
