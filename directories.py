@@ -1,4 +1,5 @@
 import requests
+from colorama import Fore
 
 
 def request(url):
@@ -19,7 +20,7 @@ def discovery(wordlist, url):
             full_url = f"{url}/{directory}"
             response = request(full_url)
             if response:
-                print(f"[+] /{directory} - [{response.status_code}]")
+                print(f"{Fore.GREEN}[+] /{directory} - [{response.status_code}]")
 
 
 target_url = input("[+] Enter Target URL: ")
