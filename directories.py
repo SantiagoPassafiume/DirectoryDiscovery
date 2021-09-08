@@ -4,7 +4,7 @@ from colorama import Fore
 
 def request(url):
     try:
-        return requests.get(f"http://{url}")
+        return requests.get(url)
     except requests.exceptions.ConnectionError:
         pass
 
@@ -23,7 +23,7 @@ def discovery(wordlist, url):
                 print(f"{Fore.GREEN}[+] /{directory} - [{response.status_code}]")
 
 
-target_url = input("[+] Enter Target URL: ")
+target_url = input("[+] Enter Target URL (With Protocol): ")
 file_name = input("[+] Enter Wordlist: ")
 
 discovery(file_name, target_url)
