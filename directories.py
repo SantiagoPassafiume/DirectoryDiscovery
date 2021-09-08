@@ -1,5 +1,7 @@
 import discovery as d
+import time
 
+start = time.perf_counter()
 
 target_url = input("[+] Enter Target URL (With Protocol): ")
 file_name = input("[+] Enter Wordlist: ")
@@ -14,3 +16,7 @@ if output_file:
     d.discovery(file_name, target_url, save_to_file, output_file)
 else:
     d.discovery(file_name, target_url, save_to_file)
+
+finish = time.perf_counter()
+
+print(f"Finished in {round(finish-start, 2)} second(s)")
