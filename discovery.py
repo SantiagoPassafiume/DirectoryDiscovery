@@ -6,6 +6,17 @@ from open_file import open_file
 
 
 def discovery(wordlist, url, save):
+    """
+    It receives 3 arguments (a wordlist, an URL and a save option).
+    First it calls the "open_file" function and tries to open the wordlist, if it fails then the execution
+    is stopped.
+
+    If the wordlist is found, then it proceeds to generate requests through the "my_request" function.
+
+    If the requests are sucessful, it means that the directory exists, so it outputs it (and saves it to a file if the option was specified).
+
+    If at any point the Keyboard it's interrupted, it raises an exception and prints a message.
+    """
     file = open_file(wordlist)
     try:
         for line in file:
