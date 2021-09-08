@@ -15,12 +15,15 @@ def discovery(wordlist, url):
     except FileNotFoundError:
         print("File could not be found.")
     else:
-        for line in file:
-            directory = line.strip()
-            full_url = f"{url}/{directory}"
-            response = request(full_url)
-            if response:
-                print(f"{Fore.GREEN}[+] /{directory} - [{response.status_code}]")
+        try:
+            for line in file:
+                directory = line.strip()
+                full_url = f"{url}/{directory}"
+                response = request(full_url)
+                if response:
+                    print(f"{Fore.GREEN}[+] /{directory} - [{response.status_code}]")
+        except KeyboardInterrupt:
+            print(f"{Fore.CYAN}The Execution Was Interrupted.")
 
 
 target_url = input("[+] Enter Target URL (With Protocol): ")
