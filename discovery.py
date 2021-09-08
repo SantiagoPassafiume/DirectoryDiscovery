@@ -2,7 +2,6 @@ from colorama import Fore
 
 from my_request import my_request
 from saving import saving
-from open_file import open_file
 
 
 def discovery(wordlist, url, save, output="discovery.txt"):
