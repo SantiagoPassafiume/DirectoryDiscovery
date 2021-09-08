@@ -1,8 +1,3 @@
-# def write_to_file(filename, data):
-#     with open(filename, "a") as file:
-#         file.write(data)
-
-
 def dividing(filename, line_count=10000):
     f = open(filename, "r")
     count = 0
@@ -18,8 +13,3 @@ def dividing(filename, line_count=10000):
             count += 1
             dict[f"dir{dir_count}"].append(line.strip())
     return dict
-
-
-# def create_file(filename):
-#     with open(filename, "a") as file:
-#         pass
