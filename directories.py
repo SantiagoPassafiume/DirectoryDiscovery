@@ -8,15 +8,14 @@ start = time.perf_counter()
 
 target_url = input("[+] Enter Target URL (With Protocol): ")
 wordlist = input("[+] Enter Wordlist: ")
-save_to_file = input("[+] Do you want to save the output to a file? (yes/no): ")
-# threads = int(input("[+] How many threads do you want to use?: "))
 
 
 dict = dividing(wordlist, 1000)
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     for count in range(0, 5):
-        executor.submit(d.discovery, dict[f"dir{count}"], target_url, save_to_file)
+        executor.submit(d.discovery, dict[f"dir{count}"], target_url)
 
 finish = time.perf_counter()
+
 print(f"Finished in {round(finish-start, 2)} second(s)")

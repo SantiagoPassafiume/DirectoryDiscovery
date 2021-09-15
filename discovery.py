@@ -4,7 +4,7 @@ from my_request import my_request
 from saving import saving
 
 
-def discovery(wordlist, url, save, output="discovery.txt"):
+def discovery(wordlist, url):
     try:
         for item in wordlist:
             directory = item
@@ -13,7 +13,6 @@ def discovery(wordlist, url, save, output="discovery.txt"):
             if response:
                 dir = f"/{directory} - [{response.status_code}]"
                 print(f"{Fore.GREEN}[+] {dir}")
-                if save.lower() == "yes":
-                    saving(dir, output)
+                saving(dir, "discovery.txt")
     except KeyboardInterrupt:
         print(f"{Fore.CYAN}The Execution Was Interrupted.")
