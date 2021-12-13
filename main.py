@@ -1,6 +1,5 @@
-import discovery as d
 import concurrent.futures
-from divide_file import dividing
+from utility import *
 import time
 
 
@@ -14,7 +13,7 @@ dict = dividing(wordlist, 1000)
 
 with concurrent.futures.ThreadPoolExecutor() as executor:
     for count in range(0, 5):
-        executor.submit(d.discovery, dict[f"dir{count}"], target_url)
+        executor.submit(discovery, dict[f"dir{count}"], target_url)
 
 finish = time.perf_counter()
 
