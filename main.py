@@ -1,3 +1,4 @@
+from sys import argv
 import concurrent.futures
 from utility import *
 import time
@@ -5,9 +6,8 @@ import time
 
 start = time.perf_counter()
 
-target_url = input("[+] Enter Target URL (With Protocol): ")
-wordlist = input("[+] Enter Wordlist: ")
-
+wordlist = argv[1]
+target_url = argv[2]
 
 dict = dividing(wordlist, 1000)
 
